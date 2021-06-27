@@ -1,39 +1,43 @@
 // display current date
-$("#currentDay").text(moment().format("MMMM Do, YYYY"));
+$("#currentDay").text(moment().format("dddd MMMM Do, YYYY"));
 
 
+// run audit function to show timeblocks in past/present/future 
+auditTime();
 
-// current tiem variable
+
+// current time variable
 var currentTime = moment().hour();
 
+
 // COLOUR-CODING TIMEBLOCKS
+
 function auditTime() {
     // loop through all the timeblocks
     $(".time-block").each(function() {
-
-        // VAR UNDEFINED
-        var currentBlocksTime // ...
-        // check time to see which colour/class to apply
-        if (currentBLocksTime === currentTime) {
-            $(this).addClass(".present");
+        // console.log(timeBlock)
+        
+         // create a variable to show present time as a time object
+        let currentBlocksTime = parseInt($(this).attr('id').split('hour')[1]);
+     
+        // check time to see which styles to apply
+        if (currentBlocksTime === currentTime) {
+            $(this).addClass("present");
         } if (currentBlocksTime > currentTime) {
-            $(this).addClass(".future");
+            $(this).addClass("future");
         } else {
-            $(this).addClass(".past");
+            $(this).addClass("past");
         }
     })
 }
 
-// run audit function
-auditTime();
-
 
 // save task when save button clicked
-$(".save-Btn").click(function() {
+$(".saveBtn").click(function() {
     
-    // GET task time and description
-    var taskTime = $(this).parent().attr("id");
-    var taskDescription = $(this).siblings(".description").val(); 
+    // use task time and description
+    let taskTime = $(this).parent().attr("id");
+    let taskDescription = $(this).siblings(".description").val(); 
 
     // save tasks & descrips to localstorage
     localStorage.setItem(taskDescription, taskTime)
