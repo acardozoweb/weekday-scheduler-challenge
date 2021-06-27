@@ -2,36 +2,6 @@
 $("#currentDay").text(moment().format("dddd MMMM Do, YYYY"));
 
 
-// run audit function to show timeblocks in past/present/future 
-auditTime();
-
-
-// current time variable
-var currentTime = moment().hour();
-
-
-// COLOUR-CODING TIMEBLOCKS
-
-function auditTime() {
-    // loop through all the timeblocks
-    $(".time-block").each(function() {
-        // console.log(timeBlock)
-        
-         // create a variable to show present time as a time object
-        let currentBlocksTime = parseInt($(this).attr('id').split('hour')[1]);
-     
-        // check time to see which styles to apply
-        if (currentBlocksTime === currentTime) {
-            $(this).addClass("present");
-        } if (currentBlocksTime > currentTime) {
-            $(this).addClass("future");
-        } else {
-            $(this).addClass("past");
-        }
-    })
-}
-
-
 // save task when save button clicked
 $(".saveBtn").click(function() {
     
@@ -42,6 +12,34 @@ $(".saveBtn").click(function() {
     // save tasks & descrips to localstorage
     localStorage.setItem(taskDescription, taskTime)
 });
+
+
+// current time variable
+let currentTime = moment().hour();
+
+
+// COLOUR-CODING TIMEBLOCKS
+
+function auditTime() {
+    // loop through all the timeblocks
+    $(".time-block").each(function() {
+        
+         // create a variable to show present time as an object
+        let currentBlocksTime = parseInt($(this).attr("id").replace(".hour", ''));
+     
+        // check time to see which styles to apply
+        if (currentBlocksTime > currentTime) {
+            $(this).addClass("future");
+        } else if (currentBlocksTime === currentTime) {
+            $(this).addClass("present");
+        } else {
+            $(this).addClass("past");
+        }
+    })
+}
+
+// run audit function to show timeblocks in past/present/future 
+auditTime();
 
 
 // show locally stored tasks
