@@ -10,7 +10,9 @@ $(".saveBtn").click(function() {
     let taskDescription = $(this).siblings(".description").val(); 
 
     // save tasks & descrips to localstorage
-    localStorage.setItem(taskDescription, taskTime)
+    localStorage.setItem(taskTime, taskDescription)
+
+    console.log(taskTime, taskDescription)
 });
 
 
