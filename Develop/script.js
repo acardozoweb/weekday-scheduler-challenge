@@ -24,10 +24,11 @@ function auditTime() {
     // loop through all the timeblocks
     $(".time-block").each(function() {
         
-         // create a variable to show present time as an object
-        let currentBlocksTime = parseInt($(this).attr("id").replace(".hour", ''));
-     
-        // check time to see which styles to apply
+         // create a variable to get each block's time
+        let currentBlocksTime = 
+        parseInt($(this).attr("id").slice(4));
+
+        // check against currentTime to see which styles to apply
         if (currentBlocksTime > currentTime) {
             $(this).addClass("future");
         } else if (currentBlocksTime === currentTime) {
@@ -48,11 +49,11 @@ $("#time9 .description").text(localStorage.getItem("time9"));
 $("#time10 .description").text(localStorage.getItem("time10"));
 $("#time11 .description").text(localStorage.getItem("time11"));
 $("#time12 .description").text(localStorage.getItem("time12"));
-$("#time1 .description").text(localStorage.getItem("time1"));
-$("#time2 .description").text(localStorage.getItem("time2"));
-$("#time3 .description").text(localStorage.getItem("time3"));
-$("#time4 .description").text(localStorage.getItem("time4"));
-$("#time5 .description").text(localStorage.getItem("time5"));
+$("#time13 .description").text(localStorage.getItem("time13"));
+$("#time14 .description").text(localStorage.getItem("time14"));
+$("#time15 .description").text(localStorage.getItem("time15"));
+$("#time16 .description").text(localStorage.getItem("time16"));
+$("#time17 .description").text(localStorage.getItem("time17"));
 
 
 
