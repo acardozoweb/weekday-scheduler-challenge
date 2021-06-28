@@ -1,6 +1,9 @@
 # workday-scheduler-challenge
 This repository is for a weekly challenge assignment in a full stack web dev boot camp, to build a workday scheduler incorporating jQuery and Moment.js .
 
+![Screen Shot 2021-06-27 at 11 19 54 PM](https://user-images.githubusercontent.com/83983013/123574670-4c4f4480-d79e-11eb-8354-d91eab9dd5f0.png)
+
+
 # User Story 
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
